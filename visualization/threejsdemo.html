@@ -47,11 +47,15 @@
 			var sphere = new THREE.Mesh( spheregeo, ballMaterial);
 			var sphereWires = new THREE.Mesh( spheregeo, ballMaterialWires);
 
+			var ballLabelGeo = new THREE.TextGeometry('Standard Kickball',{size: 12});
+			var ballLabelMat = new THREE.MeshBasicMaterial( {color: 0xdd0033});
+			var ballLabel = new THREE.Mesh( ballLabelGeo, ballLabelMat);
 
 			scene.add(sphere);
 			scene.add( sphereWires );
 			scene.add( cube );
     	scene.add( cubeWires );
+			scene.add(ballLabel);
 			camera.position.z = 1.2;
 
       var render = function () {
