@@ -1,0 +1,29 @@
+body {
+  font-family: sans-serif;
+  background-color: #222222;
+}
+
+#header {
+  border: solid black 4px;
+  color: #881111;
+}
+
+#controlbox {
+  color: #eeeeee;
+}
+
+#controlbox table{
+  margin-left: auto;
+  margin-right: auto;
+  border: solid black 3px;
+  border-collapse: collapse;
+}
+
+#controlbox table tr td {
+  color: #dddddd;
+  border-left: 3px solid #000;
+}
+
+#controlbox table td:first-child {
+  border-left: none;
+}

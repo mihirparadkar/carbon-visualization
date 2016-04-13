@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <title>Car Gases</title>
+    <script src="../lib/three.min.js"></script>
+    <script src="../lib/d3-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div id="header">
+      <h1 align="center" style="font-size:40;">How Does Your Car Affect the Environment?</h2>
+    </div>
+    <div id="controlbox">
+      <h1 align="center" style="font-size:28;">Car Builder</h2>
+        <!--combined08, year, displ, cylinders, drive, vclass, transmission, fuelType,  -->
+      <table>
+        <tr>
+          <td>
+            Combined Miles per Gallon:
+            <br />
+            8
+            <input id="combined" type="range" min="8" max="55" value="20.4"/>
+            55
+            <br />
+            <br />
+          </td>
+          <td>
+            Number of Cylinders:
+            <br />
+            <select id="cylinders">
+              <option value="2">
+                2
+              </option>
+              <option value="3">
+                3
+              </option>
+              <option value="4" selected="selected">
+                4
+              </option>
+              <option value="5">
+                5
+              </option>
+              <option value="6">
+                6
+              </option>
+              <option value="8">
+                8
+              </option>
+              <option value="10">
+                10
+              </option>
+              <option value="12">
+                12
+              </option>
+              <option value="16">
+                16
+              </option>
+            </select>
+          </td>
+          <td>
+            Drive Type:
+            <br />
+            <select id="drive">
+              <option value="2-Wheel Drive">
+                2-Wheel Drive
+              </option>
+              <option value="4-Wheel Drive">
+                4-Wheel Drive
+              </option>
+              <option value="Part-time 4-Wheel Drive">
+                Part-time 4-Wheel Drive
+              </option>
+              <option value="Front-Wheel Drive" selected="selected">
+                Front-Wheel Drive
+              </option>
+              <option value="Rear-Wheel Drive">
+                Rear-Wheel Drive
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Model Year:
+            <br />
+            1984
+            <input id="year" type="range" min="1984" max="2017" value="2004" step="1"/>
+            2017
+            <br />
+            <br />
+          </td>
+          <td>
+            Vehicle Class:
+            <br />
+            <select id="vclass">
+              <option value="Two Seater"> Two Seater </option>
+              <option value="SubCompact Car"> SubCompact Car </option>
+              <option value="Van"> Van </option>
+              <option value="Compact Car" selected="selected"> Compact Car </option>
+              <option value="Midsize Car"> Midsize Car </option>
+              <option value="Large Car"> Large Car </option>
+              <option value="Small Station Wagon"> Small Station Wagon </option>
+              <option value="Midsize-Large Station Wagon"> Midsize-Large Station Wagon </option>
+              <option value="Small Pickup Truck"> Small Pickup Truck </option>
+              <option value="Standard Pickup Truck"> Standard Pickup Truck </option>
+              <option value="Special Purpose Vehicle"> Special Purpose Vehicle </option>
+              <option value="MiniCompact Car"> MiniCompact Car </option>
+              <option value="Midsize Station Wagon"> Midsize Station Wagon </option>
+              <option value="Cargo Van"> Cargo Van </option>
+              <option value="Passenger Van"> Passenger Van </option>
+              <option value="Minivan"> Minivan </option>
+              <option value="Sport Utility Vehicle"> Sport Utility Vehicle </option>
+              <option value="Van Passenger"> Van Passenger </option>
+              <option value="Small Sport Utility Vehicle"> Small Sport Utility Vehicle </option>
+              <option value="Standard Sport Utility Vehicle"> Standard Sport Utility Vehicle </option>
+            </select>
+          </td>
+          <td>
+            Transmission Type:
+            <br />
+            <select id="transmissiontype">
+              <option value="Automatic" selected="selected">
+                Automatic
+              </option>
+              <option value="Manual">
+                Manual
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Engine Displacement (L):
+            <br />
+            0.6
+            <input id="displ" type="range" min="0.6" max="8.4" value="2.4" />
+            8.4
+          </td>
+          <td>
+            Fuel Type:
+            <br />
+            <select id="fueltype">
+              <option value="Diesel">
+                Diesel
+              </option>
+              <option value="Regular Gasoline" selected="selected">
+                Regular Gasoline
+              </option>
+              <option value="Midgrade Gasoline">
+                Midgrade Gasoline
+              </option>
+              <option value="Premium Gasoline">
+                Premium Gasoline
+              </option>
+            </select>
+          </td>
+          <td>
+
+          </td>
+        </tr>
+      </table>
+      <br />
+    </div>
+    <table>
+      <tr>
+        <td>
+          <div id="viz0" align="left">
+            <script type="text/javascript" charset="utf8">
+              (function (){
+                var scene = new THREE.Scene();
+          			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+                var renderer = new THREE.WebGLRenderer();
+          			renderer.setSize( window.innerWidth*0.29, window.innerHeight/2 );
+          			document.getElementById("viz0").appendChild( renderer.domElement );
+                renderer.setClearColor( 0x111111, 1);
+                var render = function () {
+                  requestAnimationFrame( render );
+                  renderer.render(scene, camera);
+                };
+                render();
+              })();
+            </script>
+          </div>
+        </td>
+        <td>
+          <div id="viz1">
+            <script type="text/javascript" charset="utf8">
+              (function (){
+                var scene = new THREE.Scene();
+                var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+                var renderer = new THREE.WebGLRenderer();
+                renderer.setSize( window.innerWidth*0.39, window.innerHeight/2 );
+                document.getElementById("viz1").appendChild( renderer.domElement );
+                renderer.setClearColor( 0x111111, 1);
+                var render = function () {
+                  requestAnimationFrame( render );
+                  renderer.render(scene, camera);
+                };
+                render();
+              })();
+            </script>
+          </div>
+        </td>
+        <td>
+          <div id="viz2">
+            <script type="text/javascript" charset="utf8">
+            (function (){
+              var scene = new THREE.Scene();
+              var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+              var renderer = new THREE.WebGLRenderer();
+              renderer.setSize( window.innerWidth*0.29, window.innerHeight/2 );
+              document.getElementById("viz2").appendChild( renderer.domElement );
+              renderer.setClearColor( 0x111111, 1);
+              var render = function () {
+                requestAnimationFrame( render );
+                renderer.render(scene, camera);
+              };
+              render();
+            })();
+            </script>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+
+  </body>
+</html>
