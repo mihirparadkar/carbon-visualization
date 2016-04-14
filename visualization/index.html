@@ -1,8 +1,10 @@
 <html>
   <head>
     <title>Car Gases</title>
-    <script src="../lib/three.min.js"></script>
-    <script src="../lib/d3-min.js"></script>
+    <script src="../lib/three.min.js" charset="utf8" ></script>
+    <script src="../lib/d3.min.js" charset="utf8" ></script>
+    <script src="../lib/calcutils.js" charset="utf8" ></script>
+    <script src="../lib/controlbox.js" charset="utf8"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
@@ -10,23 +12,23 @@
       <h1 align="center" style="font-size:40;">How Does Your Car Affect the Environment?</h2>
     </div>
     <div id="controlbox">
-      <h1 align="center" style="font-size:28;">Car Builder</h2>
+      <h1 align="center" style="font-size:28;">Build Your Car (from your reality or your dreams)</h2>
         <!--combined08, year, displ, cylinders, drive, vclass, transmission, fuelType,  -->
       <table>
         <tr>
           <td>
-            Combined Miles per Gallon:
+            Combined Miles per Gallon: <span id="boxmpg">20</span>
             <br />
             8
-            <input id="combined" type="range" min="8" max="55" value="20.4"/>
+            <input id="combined" type="range" min="8" max="55" value="20.4" oninput="setMPG()"/>
             55
             <br />
             <br />
           </td>
           <td>
-            Number of Cylinders:
+            Number of Cylinders: <span id="boxcyls">4</span>
             <br />
-            <select id="cylinders">
+            <select id="cylinders" onchange="setCylinders()">
               <option value="2">
                 2
               </option>
@@ -57,9 +59,9 @@
             </select>
           </td>
           <td>
-            Drive Type:
+            Drive Type: <span id="boxdrive">Front-Wheel Drive</span>
             <br />
-            <select id="drive">
+            <select id="drive" onchange="setDrive()">
               <option value="2-Wheel Drive">
                 2-Wheel Drive
               </option>
@@ -80,44 +82,43 @@
         </tr>
         <tr>
           <td>
-            Model Year:
+            Model Year: <span id="boxyear">2004</span>
             <br />
             1984
-            <input id="year" type="range" min="1984" max="2017" value="2004" step="1"/>
+            <input id="year" type="range" min="1984" max="2017" value="2004" step="1" oninput="setYear()"/>
             2017
             <br />
             <br />
           </td>
           <td>
-            Vehicle Class:
+            Vehicle Class: <span id="boxvclass">Compact Car</span>
             <br />
-            <select id="vclass">
-              <option value="Two Seater"> Two Seater </option>
-              <option value="SubCompact Car"> SubCompact Car </option>
-              <option value="Van"> Van </option>
-              <option value="Compact Car" selected="selected"> Compact Car </option>
-              <option value="Midsize Car"> Midsize Car </option>
-              <option value="Large Car"> Large Car </option>
-              <option value="Small Station Wagon"> Small Station Wagon </option>
-              <option value="Midsize-Large Station Wagon"> Midsize-Large Station Wagon </option>
-              <option value="Small Pickup Truck"> Small Pickup Truck </option>
-              <option value="Standard Pickup Truck"> Standard Pickup Truck </option>
-              <option value="Special Purpose Vehicle"> Special Purpose Vehicle </option>
-              <option value="MiniCompact Car"> MiniCompact Car </option>
-              <option value="Midsize Station Wagon"> Midsize Station Wagon </option>
-              <option value="Cargo Van"> Cargo Van </option>
-              <option value="Passenger Van"> Passenger Van </option>
-              <option value="Minivan"> Minivan </option>
-              <option value="Sport Utility Vehicle"> Sport Utility Vehicle </option>
-              <option value="Van Passenger"> Van Passenger </option>
-              <option value="Small Sport Utility Vehicle"> Small Sport Utility Vehicle </option>
-              <option value="Standard Sport Utility Vehicle"> Standard Sport Utility Vehicle </option>
+            <select id="vclass" onchange="setVClass()">
+              <option value="Two Seater">Two Seater</option>
+              <option value="SubCompact Car">SubCompact Car</option>
+              <option value="Van">Van</option>
+              <option value="Compact Car" selected="selected">Compact Car</option>
+              <option value="Midsize Car">Midsize Car</option>
+              <option value="Large Car">Large Car</option>
+              <option value="Small Station Wagon">Small Station Wagon</option>
+              <option value="Midsize-Large Station Wagon">Midsize-Large Station Wagon</option>
+              <option value="Small Pickup Truck">Small Pickup Truck</option>
+              <option value="Standard Pickup Truck">Standard Pickup Truck</option>
+              <option value="Special Purpose Vehicle">Special Purpose Vehicle</option>
+              <option value="MiniCompact Car">MiniCompact Car</option>
+              <option value="Midsize Station Wagon">Midsize Station Wagon</option>
+              <option value="Cargo Van">Cargo Van</option>
+              <option value="Passenger Van">Passenger Van</option>
+              <option value="Minivan">Minivan</option>
+              <option value="Sport Utility Vehicle">Sport Utility Vehicle</option>
+              <option value="Small Sport Utility Vehicle">Small Sport Utility Vehicle</option>
+              <option value="Standard Sport Utility Vehicle">Standard Sport Utility Vehicle</option>
             </select>
           </td>
           <td>
-            Transmission Type:
+            Transmission Type: <span id="boxtransmission">Automatic</span>
             <br />
-            <select id="transmissiontype">
+            <select id="transmissiontype" onchange="setTransmission()">
               <option value="Automatic" selected="selected">
                 Automatic
               </option>
@@ -129,16 +130,16 @@
         </tr>
         <tr>
           <td>
-            Engine Displacement (L):
+            Engine Displacement (L): <span id="boxdispl">2.4</span>
             <br />
             0.6
-            <input id="displ" type="range" min="0.6" max="8.4" value="2.4" />
+            <input id="displ" type="range" min="0.6" max="8.4" value="2.4" step="0.1" oninput="setDisplacement()"/>
             8.4
           </td>
           <td>
-            Fuel Type:
+            Fuel Type: <span id="boxfueltype">Regular Gasoline</span>
             <br />
-            <select id="fueltype">
+            <select id="fueltype" onchange="setFuel()">
               <option value="Diesel">
                 Diesel
               </option>
@@ -171,7 +172,7 @@
                 var renderer = new THREE.WebGLRenderer();
           			renderer.setSize( window.innerWidth*0.29, window.innerHeight/2 );
           			document.getElementById("viz0").appendChild( renderer.domElement );
-                renderer.setClearColor( 0x111111, 1);
+                renderer.setClearColor( 0xcccccc, 1);
                 var render = function () {
                   requestAnimationFrame( render );
                   renderer.render(scene, camera);
@@ -190,7 +191,7 @@
                 var renderer = new THREE.WebGLRenderer();
                 renderer.setSize( window.innerWidth*0.39, window.innerHeight/2 );
                 document.getElementById("viz1").appendChild( renderer.domElement );
-                renderer.setClearColor( 0x111111, 1);
+                renderer.setClearColor( 0xcccccc, 1);
                 var render = function () {
                   requestAnimationFrame( render );
                   renderer.render(scene, camera);
@@ -209,7 +210,7 @@
               var renderer = new THREE.WebGLRenderer();
               renderer.setSize( window.innerWidth*0.29, window.innerHeight/2 );
               document.getElementById("viz2").appendChild( renderer.domElement );
-              renderer.setClearColor( 0x111111, 1);
+              renderer.setClearColor( 0xcccccc, 1);
               var render = function () {
                 requestAnimationFrame( render );
                 renderer.render(scene, camera);

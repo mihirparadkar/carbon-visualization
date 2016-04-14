@@ -1,0 +1,84 @@
+                                                    (Intercept) 
+                                                   2.679864e+06 
+poly(city08 * 0.55 + highway08 * 0.45, degree = 3, raw = TRUE)1 
+                                                  -1.048021e+02 
+poly(city08 * 0.55 + highway08 * 0.45, degree = 3, raw = TRUE)2 
+                                                   2.765369e+00 
+poly(city08 * 0.55 + highway08 * 0.45, degree = 3, raw = TRUE)3 
+                                                  -2.580640e-02 
+                       poly(cylinders, degree = 3, raw = TRUE)1 
+                                                  -1.616963e+00 
+                       poly(cylinders, degree = 3, raw = TRUE)2 
+                                                   1.175681e-01 
+                       poly(cylinders, degree = 3, raw = TRUE)3 
+                                                   3.127129e-03 
+                           poly(displ, degree = 3, raw = TRUE)1 
+                                                   2.551929e+01 
+                           poly(displ, degree = 3, raw = TRUE)2 
+                                                  -7.067862e+00 
+                           poly(displ, degree = 3, raw = TRUE)3 
+                                                   6.464952e-01 
+                                             drive2-Wheel Drive 
+                                                   1.025942e+00 
+                                             drive4-Wheel Drive 
+                                                  -1.143217e+00 
+                                         driveFront-Wheel Drive 
+                                                   2.812781e+00 
+                                   drivePart-time 4-Wheel Drive 
+                                                  -6.651842e+00 
+                                          driveRear-Wheel Drive 
+                                                  -1.281594e+00 
+                                     fuelType1Midgrade Gasoline 
+                                                  -4.826528e+01 
+                                      fuelType1Premium Gasoline 
+                                                  -5.381574e+01 
+                                      fuelType1Regular Gasoline 
+                                                  -5.284004e+01 
+                                                 tranyAutomatic 
+                                                  -4.921969e+00 
+                                                    tranyManual 
+                                                  -3.399479e+00 
+                                              VClassCompact Car 
+                                                   1.030528e+01 
+                                                VClassLarge Car 
+                                                   1.012411e+01 
+                                              VClassMidsize Car 
+                                                   1.134736e+01 
+                              VClassMidsize-Large Station Wagon 
+                                                   8.542655e+00 
+                                    VClassMidsize Station Wagon 
+                                                   8.788368e+00 
+                                          VClassMiniCompact Car 
+                                                   1.140005e+01 
+                                                  VClassMinivan 
+                                                   6.790347e+00 
+                                            VClassPassenger Van 
+                                                   1.771182e+00 
+                                       VClassSmall Pickup Truck 
+                                                   3.555764e+00 
+                              VClassSmall Sport Utility Vehicle 
+                                                   8.691300e+00 
+                                      VClassSmall Station Wagon 
+                                                   1.026333e+01 
+                                  VClassSpecial Purpose Vehicle 
+                                                   3.325832e+00 
+                                    VClassSport Utility Vehicle 
+                                                   3.348148e+00 
+                                    VClassStandard Pickup Truck 
+                                                   1.555158e+00 
+                           VClassStandard Sport Utility Vehicle 
+                                                   4.473029e+00 
+                                           VClassSubCompact Car 
+                                                   1.119030e+01 
+                                               VClassTwo Seater 
+                                                   1.408044e+01 
+                                                      VClassVan 
+                                                   3.042487e+00 
+                                            VClassVan Passenger 
+                                                   5.095523e+00 
+                            poly(year, degree = 3, raw = TRUE)1 
+                                                  -4.015510e+03 
+                            poly(year, degree = 3, raw = TRUE)2 
+                                                   2.006806e+00 
+                            poly(year, degree = 3, raw = TRUE)3 
+                                                  -3.342987e-04 
