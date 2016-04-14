@@ -20,7 +20,7 @@
             Combined Miles per Gallon: <span id="boxmpg">20</span>
             <br />
             8
-            <input id="combined" type="range" min="8" max="55" value="20.4" oninput="setMPG()"/>
+            <input id="combined" type="range" min="8" max="55" value="20.4" oninput="setMPG();updateSphere()"/>
             55
             <br />
             <br />
@@ -28,7 +28,7 @@
           <td>
             Number of Cylinders: <span id="boxcyls">4</span>
             <br />
-            <select id="cylinders" onchange="setCylinders()">
+            <select id="cylinders" onchange="setCylinders();updateSphere()">
               <option value="2">
                 2
               </option>
@@ -61,7 +61,7 @@
           <td>
             Drive Type: <span id="boxdrive">Front-Wheel Drive</span>
             <br />
-            <select id="drive" onchange="setDrive()">
+            <select id="drive" onchange="setDrive();updateSphere()">
               <option value="2-Wheel Drive">
                 2-Wheel Drive
               </option>
@@ -85,7 +85,7 @@
             Model Year: <span id="boxyear">2004</span>
             <br />
             1984
-            <input id="year" type="range" min="1984" max="2017" value="2004" step="1" oninput="setYear()"/>
+            <input id="year" type="range" min="1984" max="2017" value="2004" step="1" oninput="setYear();updateSphere()"/>
             2017
             <br />
             <br />
@@ -93,7 +93,7 @@
           <td>
             Vehicle Class: <span id="boxvclass">Compact Car</span>
             <br />
-            <select id="vclass" onchange="setVClass()">
+            <select id="vclass" onchange="setVClass();updateSphere()">
               <option value="Two Seater">Two Seater</option>
               <option value="SubCompact Car">SubCompact Car</option>
               <option value="Van">Van</option>
@@ -118,7 +118,7 @@
           <td>
             Transmission Type: <span id="boxtransmission">Automatic</span>
             <br />
-            <select id="transmissiontype" onchange="setTransmission()">
+            <select id="transmissiontype" onchange="setTransmission();updateSphere()">
               <option value="Automatic" selected="selected">
                 Automatic
               </option>
@@ -133,13 +133,13 @@
             Engine Displacement (L): <span id="boxdispl">2.4</span>
             <br />
             0.6
-            <input id="displ" type="range" min="0.6" max="8.4" value="2.4" step="0.1" oninput="setDisplacement()"/>
+            <input id="displ" type="range" min="0.6" max="8.4" value="2.4" step="0.1" oninput="setDisplacement();updateSphere()"/>
             8.4
           </td>
           <td>
             Fuel Type: <span id="boxfueltype">Regular Gasoline</span>
             <br />
-            <select id="fueltype" onchange="setFuel()">
+            <select id="fueltype" onchange="setFuel();updateSphere()">
               <option value="Diesel">
                 Diesel
               </option>
@@ -165,59 +165,17 @@
       <tr>
         <td>
           <div id="viz0" align="left">
-            <script type="text/javascript" charset="utf8">
-              (function (){
-                var scene = new THREE.Scene();
-          			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-                var renderer = new THREE.WebGLRenderer();
-          			renderer.setSize( window.innerWidth*0.29, window.innerHeight/2 );
-          			document.getElementById("viz0").appendChild( renderer.domElement );
-                renderer.setClearColor( 0xcccccc, 1);
-                var render = function () {
-                  requestAnimationFrame( render );
-                  renderer.render(scene, camera);
-                };
-                render();
-              })();
-            </script>
+            <script src="activityScene.js" type="text/javascript" charset="utf8"></script>
           </div>
         </td>
         <td>
           <div id="viz1">
-            <script type="text/javascript" charset="utf8">
-              (function (){
-                var scene = new THREE.Scene();
-                var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-                var renderer = new THREE.WebGLRenderer();
-                renderer.setSize( window.innerWidth*0.39, window.innerHeight/2 );
-                document.getElementById("viz1").appendChild( renderer.domElement );
-                renderer.setClearColor( 0xcccccc, 1);
-                var render = function () {
-                  requestAnimationFrame( render );
-                  renderer.render(scene, camera);
-                };
-                render();
-              })();
-            </script>
+            <script src="carbonScene.js" type="text/javascript" charset="utf8"></script>
           </div>
         </td>
         <td>
           <div id="viz2">
-            <script type="text/javascript" charset="utf8">
-            (function (){
-              var scene = new THREE.Scene();
-              var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-              var renderer = new THREE.WebGLRenderer();
-              renderer.setSize( window.innerWidth*0.29, window.innerHeight/2 );
-              document.getElementById("viz2").appendChild( renderer.domElement );
-              renderer.setClearColor( 0xcccccc, 1);
-              var render = function () {
-                requestAnimationFrame( render );
-                renderer.render(scene, camera);
-              };
-              render();
-            })();
-            </script>
+            <script src="smokingScene.js" type="text/javascript" charset="utf8"></script>
           </div>
         </td>
       </tr>
