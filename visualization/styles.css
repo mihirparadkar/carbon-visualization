@@ -27,3 +27,32 @@ body {
 #controlbox table td:first-child {
   border-left: none;
 }
+
+#pad {
+  padding:60px;
+}
+
+#eq {
+  width:80px;
+}
+
+#treeTD {
+  width: 70px;
+}
+
+#car {
+  display: inline;
+  width: 100px;
+  padding: 5px;
+  margin: 0;
+}
+
+#trees {
+  width:650px;
+  padding: 10px;
+}
+
+#tree {
+  width:60px;
+  padding:0;
+}
