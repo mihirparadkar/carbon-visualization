@@ -3,8 +3,10 @@
     <title>Car Gases</title>
     <script src="../lib/three.min.js" charset="utf8" ></script>
     <script src="../lib/d3.min.js" charset="utf8" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js" charset="utf8"></script>
     <script src="../lib/calcutils.js" charset="utf8" ></script>
     <script src="../lib/controlbox.js" charset="utf8"></script>
+    <script src="../lib/sceneutils.js" charset="utf8"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
@@ -166,11 +168,34 @@
         <td>
           <div id="viz0" align="left">
             <script src="activityScene.js" type="text/javascript" charset="utf8"></script>
+            <script type="text/javascript" charset="utf8">
+              var apos = $('#viz0').offset();
+              var activityLabel = d3.select("#viz0").append("span")
+              .html('50 L Air from 1 min of running').style('position','absolute')
+              .style("top",apos.top).style("left",apos.left);
+              /*
+              activityLabel.style.position = 'absolute';
+              activityLabel.innerHTML = '1 min running, 50 L Air'
+              activitylabel.style.top = apos.top;
+              activitylabel.style.left = apos.left;
+              */
+              /*var text2 = document.createElement('div');
+              text2.style.position = 'absolute';
+              //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+              text2.style.width = 100;
+              text2.style.height = 100;
+              text2.style.backgroundColor = "blue";
+              text2.innerHTML = "hi there!";
+              text2.style.top = 200 + 'px';
+              text2.style.left = 200 + 'px';
+              document.body.appendChild(text2);*/
+            </script>
           </div>
         </td>
         <td>
           <div id="viz1">
             <script src="carbonScene.js" type="text/javascript" charset="utf8"></script>
+
           </div>
         </td>
         <td>
@@ -180,7 +205,5 @@
         </td>
       </tr>
     </table>
-
-
   </body>
 </html>

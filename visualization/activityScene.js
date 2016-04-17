@@ -27,7 +27,7 @@
   };
 
   //make a human variable in this scope and asynchronously load the human head
-  var human;
+  var human, font;
   var humanLoader = new THREE.JSONLoader();
   humanLoader.load('../models/humanheadmin.js',function(geometry, materials){
     humangeo = geometry;

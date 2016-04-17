@@ -1,10 +1,15 @@
 var sphere;
+var sphere2;
 
 function updateSphere () {
   r = m3toRadius(grams2m3(predictCO2(cubic_model)));
+  sphere.scale.set(r,r,r);
+  sphere2.scale.set(r,r,r);
+  /*
   sphere.scale.x = r;
   sphere.scale.y = r;
   sphere.scale.z = r;
+  */
 }
 
 (function (){
@@ -45,13 +50,19 @@ function updateSphere () {
 
   //make a sphere to represent air consumption while running
   var sphgeo = new THREE.SphereGeometry(1, 18, 18);
-  var sphmat = new THREE.MeshBasicMaterial({color: 0x555555,
-      transparent: true, opacity: 0.5});
-  sphere = new THREE.Mesh( sphgeo, sphmat);
+  var sphgeo2 = new THREE.SphereGeometry(1, 4, 4);
+  var sphmat = new THREE.MeshBasicMaterial({color: 0xbbbbbb,
+      transparent: true, opacity: 0.5, wireframe: true});
+  var sphmat2 = new THREE.MeshBasicMaterial({color: 0xaaaaaa,
+      transparent: true, opacity: 0.5})
+  sphere = new THREE.Mesh( sphgeo2, sphmat);
+  sphere2 = new THREE.Mesh( sphgeo, sphmat2);
 
   scene.add(sphere);
+  scene.add(sphere2);
   var rinit = m3toRadius(grams2m3(predictCO2(cubic_model)));
   sphere.scale.set(rinit, rinit, rinit);
+  sphere2.scale.set(rinit,rinit,rinit);
   //Event listeners to add interactivity
   var down = false;
       var sx = 0,
