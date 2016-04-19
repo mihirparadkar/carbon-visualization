@@ -30,7 +30,7 @@ function updateSphere () {
 
   document.getElementById("viz1").appendChild( renderer.domElement );
 
-  renderer.setClearColor( 0xcccccc, 1);
+  renderer.setClearColor( 0xffffff, 1);
 
   camera.position.z = 1.1;
 
