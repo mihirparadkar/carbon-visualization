@@ -5,11 +5,7 @@ function updateSphere () {
   r = m3toRadius(grams2m3(predictCO2(cubic_model)));
   sphere.scale.set(r,r,r);
   sphere2.scale.set(r,r,r);
-  /*
-  sphere.scale.x = r;
-  sphere.scale.y = r;
-  sphere.scale.z = r;
-  */
+  d3.select("#co2vol").html(1000*grams2m3(predictCO2(cubic_model)).toPrecision(3));
 }
 
 (function (){
@@ -36,6 +32,8 @@ function updateSphere () {
 
   var render = function () {
     requestAnimationFrame( render );
+    human.rotation.y += 0.01;
+    sphere.rotation.y += 0.01;
     renderer.render(scene, camera);
   };
 
@@ -63,6 +61,8 @@ function updateSphere () {
   var rinit = m3toRadius(grams2m3(predictCO2(cubic_model)));
   sphere.scale.set(rinit, rinit, rinit);
   sphere2.scale.set(rinit,rinit,rinit);
+  d3.select("#co2vol").html(1000*grams2m3(predictCO2(cubic_model)).toPrecision(3));
+
   //Event listeners to add interactivity
   var down = false;
       var sx = 0,

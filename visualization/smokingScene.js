@@ -23,6 +23,8 @@
 
   var render = function () {
     requestAnimationFrame( render );
+    human.rotation.y += 0.01;
+    sphere2.rotation.y += 0.01;
     renderer.render(scene, camera);
   };
 
@@ -37,11 +39,16 @@
 
   //make a sphere to represent air consumption while running
   var sphgeo = new THREE.SphereGeometry(m3toRadius(0.104), 18, 18);
+  var sphgeo2 = new THREE.SphereGeometry(m3toRadius(0.104), 4, 3);
   var sphmat = new THREE.MeshBasicMaterial({color: 0x995522,
       transparent: true, opacity: 0.5});
+  var sphmat2 = new THREE.MeshBasicMaterial({color: 0xbb7744,
+      transparent: false, wireframe: true});
   var sphere = new THREE.Mesh( sphgeo, sphmat);
-  scene.add(sphere);
+  var sphere2 = new THREE.Mesh( sphgeo2, sphmat2);
 
+  scene.add(sphere);
+  scene.add(sphere2);
   //Event listeners to add interactivity
   var down = false;
       var sx = 0,
@@ -65,6 +72,8 @@
           human.rotation.x += dy * 0.01;
           sphere.rotation.y += dx * 0.01;
           sphere.rotation.x += dy * 0.01;
+          sphere2.rotation.x += dy * 0.01;
+          sphere2.rotation.y += dx * 0.01;
           sx += dx;
           sy += dy;
       }
