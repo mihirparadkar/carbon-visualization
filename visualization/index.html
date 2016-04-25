@@ -13,9 +13,19 @@
   <body>
     <div id="header">
       <h1 align="center" style="font-size:40;">How Does Your Car Affect the Environment?</h2>
+        <h3>Select a vehicle</h3>
+      <script type="text/javascript" src="../datasets/samplecars.json"></script>
+    <input id="escalade" type="button" value="2016 Cadillac Escalade" onclick="setSample(0);updateSphere();" />
+    <input id="lamborghini" type="button" value="2016 Lamborghini Aventador" onclick="setSample(1);updateSphere();" />
+    <input id="camry" type="button" value="2011 Toyota Camry" onclick="setSample(2);updateSphere();" />
+    <input id="explorer" type="button" value="1997 Ford Explorer" onclick="setSample(3);updateSphere();" />
+    <input id="volkswagen" type="button" value="2005 Volkswagen Golf" onclick="setSample(4);updateSphere();" />
     </div>
     <div id="controlbox">
-    <h3>Build Your Own Vehicle</h3>
+
+
+    <h3>Or Build Your Own Vehicle</h3>
+
         <!--combined08, year, displ, cylinders, drive, vclass, transmission, fuelType,  -->
       <table>
         <tr>
@@ -165,7 +175,7 @@
               <option value="Diesel">
                 Diesel
               </option>
-              <option value="Regular Gasoline" selected="selected">it
+              <option value="Regular Gasoline" selected="selected">
                 Regular Gasoline
               </option>
               <option value="Midgrade Gasoline">
@@ -179,6 +189,8 @@
         </tr>
       </table>
       <br />
+
+      
     </div>
 
     <div id="spheres">

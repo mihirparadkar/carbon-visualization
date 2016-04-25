@@ -24,7 +24,7 @@
  "cyls": 4,
  "drive": "Front-Wheel Drive",
  "year": 2011,
- "vclass": "Midsize Car"
+ "vclass": "Midsize Car",
  "transtype": "Manual",
  "displ": 2.5,
  "fueltype": "Regular Gasoline"
