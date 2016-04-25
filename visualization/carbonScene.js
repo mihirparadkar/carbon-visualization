@@ -48,7 +48,7 @@ function updateSphere () {
 
   //make a sphere to represent air consumption while running
   var sphgeo = new THREE.SphereGeometry(1, 18, 18);
-  var sphgeo2 = new THREE.SphereGeometry(1, 4, 4);
+  var sphgeo2 = new THREE.SphereGeometry(1, 4, 3);
   var sphmat = new THREE.MeshBasicMaterial({color: 0xbbbbbb,
       transparent: true, opacity: 0.5, wireframe: true});
   var sphmat2 = new THREE.MeshBasicMaterial({color: 0xaaaaaa,
