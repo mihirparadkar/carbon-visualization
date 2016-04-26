@@ -38,10 +38,57 @@
       <div id="current"> <br> <br> </div>
 
     </div>
+
+    <div id="spheres">
+      <table id="threeD">
+        <tr>
+          <td>Air breathed in 1 minute of running: 50 L
+            <div id="viz0" align="left">
+              <script src="activityScene.js" type="text/javascript" charset="utf8"></script>
+            </div>
+          </td>
+          <td>Volume of CO2 emitted from your vehicle: <span id="co2vol"></span>L
+            <div id="viz1">
+            </div>
+          </td>
+          <td>
+            <div id="viz2">Volume of smoke inhaled from a carton of cigarettes: 104 L
+              <script src="smokingScene.js" type="text/javascript" charset="utf8"></script>
+            </div>
+          </td>
+        </tr>
+      </table>
+      </div>
+
+      <div id="treeDiv">
+      <table id='equi'>
+        <tr>
+          <td>
+            <div>
+              Your Car
+            </div>
+            <img id='car' src='../assets/car_new.svg' alt='Car'>
+          </td>
+          <td id='pad'>
+            <div>Equilibrium</div>
+            <img id='eq' src='../assets/equilibrium.png' alt='equilibrium sign'>
+          <td>
+            <div>
+              The number of grown trees required to offset the chosen car's emissions is: <span id="treesnum"></span>
+            </div>
+            <table id='trees'>
+            </table>
+            <script>setTrees()</script>
+          </td>
+        </tr>
+        <tr>
+      </table>
+
+    </div>
+
+
     <div id="controlbox">
-
-
-    <h3>Or Build Your Own</h3>
+    <h2>Or Build Your Own</h2>
 
         <!--combined08, year, displ, cylinders, drive, vclass, transmission, fuelType,  -->
       <table>
@@ -54,9 +101,9 @@
             48
             <br />
           </td>
-        </tr>
+<!--         </tr>
 
-        <tr>
+        <tr> -->
           <td>
             Model Year: <span id="boxyear">2004</span>
             <br />
@@ -64,10 +111,10 @@
             <input id="year" type="range" min="1984" max="2017" value="2004" step="1" oninput="setYear();updateSphere();setTrees()"/>
             '17
           </td>
-        </tr>
+<!--         </tr>
 
 
-        <tr>
+        <tr> -->
           <td>
             Engine Displacement (L): <span id="boxdispl">2.4</span>
             <br />
@@ -75,9 +122,9 @@
             <input id="displ" type="range" min="0.6" max="8.4" value="2.4" step="0.1" oninput="setDisplacement();updateSphere();setTrees()"/>
             8.4
           </td>
-        </tr>
+<!--         </tr>
 
-        <tr>
+        <tr> -->
           <td>
             Number of Cylinders: <span id="boxcyls">4</span> <br>
             <select id="cylinders" onchange="setCylinders();updateSphere();setTrees()">
@@ -136,10 +183,10 @@
               </option>
             </select>
           </td>
-        </tr>
+   <!--      </tr>
 
 
-        <tr>
+        <tr> -->
           <td>
             Vehicle Class: <span id="boxvclass">Compact Car</span>
             <br />
@@ -165,10 +212,10 @@
               <option value="Standard Sport Utility Vehicle">Standard Sport Utility Vehicle</option>
             </select>
           </td>
-        </tr>
+<!--         </tr>
 
 
-        <tr>
+        <tr> -->
           <td>
             Transmission Type: <span id="boxtransmission">Automatic</span>
             <br />
@@ -181,10 +228,10 @@
               </option>
             </select>
           </td>
-        </tr>
+   <!--      </tr>
 
 
-        <tr>
+        <tr> -->
           <td>
             Fuel Type: <span id="boxfueltype">Regular Gasoline</span>
             <br />
@@ -206,59 +253,14 @@
         </tr>
       </table>
       <br />
-
-
     </div>
 
-    <div id="spheres">
-      <table id="threeD">
-        <tr>
-          <td>Air breathed in 1 minute of running: 50 L
-            <div id="viz0" align="left">
-              <script src="activityScene.js" type="text/javascript" charset="utf8"></script>
-            </div>
-          </td>
-          <td>Volume of CO2 emitted from your vehicle: <span id="co2vol"></span>L
-            <div id="viz1">
-              <script src="carbonScene.js" type="text/javascript" charset="utf8"></script>
-            </div>
-          </td>
-          <td>
-            <div id="viz2">Volume of smoke inhaled from a carton of cigarettes: 104 L
-              <script src="smokingScene.js" type="text/javascript" charset="utf8"></script>
-            </div>
-          </td>
-        </tr>
-      </table>
-      </div>
+    <script src="carbonScene.js" type="text/javascript" charset="utf8"></script>
 
-      <div id="treeDiv">
-      <table id='equi'>
-        <tr>
-          <td>
-            <div>
-              Your Car
-            </div>
-            <img id='car' src='../assets/car_new.svg' alt='Car'>
-          </td>
-          <td id='pad'>
-            <div>Equilibrium</div>
-            <img id='eq' src='../assets/equilibrium.png' alt='equilibrium sign'>
-          <td>
-            <div>
-              The number of grown trees required to offset the chosen car's emissions is: <span id="treesnum"></span>
-            </div>
-            <table id='trees'>
-            </table>
-            <script>setTrees()</script>
-          </td>
-        </tr>
-        <tr>
-      </table>
 
-    </div>
+
     <div id="glossary">
-      <h2><br><br>Definition of Technical Terms:</h2>
+      <h2><br>Definition of Technical Terms:</h2>
       <p>
       <b>Combined Fuel Economy: </b>EPA definition gives (0.45)(Highway MPG) + (0.55)(City MPG) = Combined MPG. This is a measure of how much fuel a vehicle uses on average to drive for one mile. Higher values generally result in a lower emission because burned fuel produces greenhouse gases.
       </p> 

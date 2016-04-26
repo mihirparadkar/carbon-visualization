@@ -2,10 +2,10 @@ body {
   font-family: "Helvetica";
 }
 
-h1 {
-  padding-bottom: 30px;
+#h11 {
+  padding-bottom:30px;
+  font-size: 40px;
 }
-
 
 h3 {
   padding-left: 15px;
@@ -37,8 +37,9 @@ h3 {
   font-family: "Helvetica";
 }
 
-#controlbox h3 {
+#controlbox h2 {
   font-family: "Cambria";
+  text-align: center;
 }
 
 p {
@@ -53,7 +54,7 @@ p {
 #header {
   font-family: "Cambria";
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 #header p {
@@ -64,9 +65,10 @@ p {
 
 #controlbox {
   font-family: "Helvetica";
-  width: 20%;
-  float: left;
-  padding-right: 30px;
+  width: 90%;
+  /*float: left;*/
+  /*padding-right: 30px;*/
+  padding: 30px;
 }
 
 #controlbox table{
@@ -81,7 +83,8 @@ p {
   font-family: "Helvetica";
   border-left: 1px solid #000;
   padding: 20px;
-  float: left;
+  /*float: left;*/
+  width: 20%;
 }
 table, tr, td {
   border-collapse: collapse;
@@ -91,9 +94,9 @@ table, tr, td {
 }
 
 #spheres {
-  float: left;
-  width: 50%;
-  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  /*margin-top: 80px;*/
 }
 
 #viz0 {
@@ -109,7 +112,7 @@ table, tr, td {
 }
 
 #pad {
-  padding:60px;
+  padding: 20px 60px;
 }
 
 #eq {
@@ -129,13 +132,14 @@ table, tr, td {
 
 #equi {
 /*  border: 1px solid black;*/
-  margin: 100px;
+  margin: 20px auto;
 
 }
 
 
 #threeD {
-  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*td{
   text-align: center;
