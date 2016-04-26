@@ -16,25 +16,27 @@
       <p>
         As global warming becomes a bigger and more prevalent issue, collectively
         humanity must look closely at the way that we are producing greenhouse gases.
-      </p><p>
+      </p><br><p>
         We developed a model based on an EPA dataset that allows us to
         estimate the
         CO2 produced by a car with certain characteristics, with more technical ones defined at the bottom. You can set these values
         yourself, and we provided a few examples for you to give you an idea of what
         certain cars would output.
-      </p><p>
+      </p><br><p>
         The rotating visual you see is the volume
         (calculated using ideal gas laws under standard conditions) of CO2 being
         produced per mile by a car of the specified values, alongside other volumes to
         put that number in context for you. You can click and drag the spheres to get a better look. Right below that, we specify the number of trees that would consume carbon dioxide at the average rate your car would produce it (assuming 35 miles driven per day).
       </p>
-      <h3>Select a vehicle</h3>
+      <h1>Select a vehicle</h1>
       <script type="text/javascript" src="../datasets/samplecars.json"></script>
       <input id="escalade" type="button" value="2016 Cadillac Escalade" onclick="setSample(0);updateSphere();" />
       <input id="lamborghini" type="button" value="2016 Lamborghini Aventador" onclick="setSample(1);updateSphere();" />
       <input id="camry" type="button" value="2011 Toyota Camry" onclick="setSample(2);updateSphere();" />
       <input id="explorer" type="button" value="1997 Ford Explorer" onclick="setSample(3);updateSphere();" />
       <input id="volkswagen" type="button" value="2005 Volkswagen Golf" onclick="setSample(4);updateSphere();" />
+      <div id="current"> <br> <br> </div>
+
     </div>
     <div id="controlbox">
 
@@ -237,7 +239,7 @@
             <div>
               Your Car
             </div>
-            <img id='car' src='../assets/car.svg' alt='Car'>
+            <img id='car' src='../assets/car_new.svg' alt='Car'>
           </td>
           <td id='pad'>
             <div>Equilibrium</div>
@@ -256,20 +258,19 @@
 
     </div>
     <div id="glossary">
-      <b>
-            Definition of Technical Terms:
-      </b>
-      <br />
-      <br />
-      Combined Fuel Economy: EPA definition gives (0.45)(Highway MPG) + (0.55)(City MPG) = Combined MPG. This is a measure of how much fuel a vehicle uses on average to drive for one mile. Higher values generally result in a lower emission because burned fuel produces greenhouse gases.
-      <br />
-      <br />
-      Displacement: The area of an engine's pistons times the length of a stroke. This affects how much air and fuel can be burned in one engine cycle, so a higher value generally results in higher emissions.
-      <br />
-      <br />
-      Cylinders: Cylinders refer to the individual combustion units in an engine, and more of them result in more power, but more emissions.
-      <br />
-      <br />
+      <h2><br><br>Definition of Technical Terms:</h2>
+      <p>
+      <b>Combined Fuel Economy: </b>EPA definition gives (0.45)(Highway MPG) + (0.55)(City MPG) = Combined MPG. This is a measure of how much fuel a vehicle uses on average to drive for one mile. Higher values generally result in a lower emission because burned fuel produces greenhouse gases.
+      </p> 
+      <br/>
+      <p>
+      <b>Displacement: </b>The area of an engine's pistons times the length of a stroke. This affects how much air and fuel can be burned in one engine cycle, so a higher value generally results in higher emissions.
+      </p>
+      <br/>
+      <p>
+      <b>Cylinders: </b>Cylinders refer to the individual combustion units in an engine, and more of them result in more power, but more emissions.
+      </p>
+      <br/>
     </div>
   </body>
 </html>
