@@ -5,6 +5,7 @@ body {
 h3 {
   padding-left: 15px;
   color: black;
+  font-family: "Helvetica";
 }
 
 p {
@@ -86,7 +87,7 @@ table, tr, td {
 }
 
 #equi {
-  border: 1px solid black;
+/*  border: 1px solid black;*/
   margin: 100px;
 
 }
@@ -95,10 +96,10 @@ table, tr, td {
 #threeD {
   margin-bottom: 20px;
 }
-td{
+/*td{
   text-align: center;
   border: 1px solid black;
-}
+}*/
 
 #trees {
   width:650px;
