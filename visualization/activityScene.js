@@ -5,7 +5,7 @@
   var scene = new THREE.Scene();
 
   var camera = new THREE.PerspectiveCamera(75,
-    0.25/0.5 * window.innerWidth/window.innerHeight, 0.1, 1000);
+    0.2/0.4 * window.innerWidth/window.innerHeight, 0.1, 1000);
 
   var renderer = new THREE.WebGLRenderer();
 
@@ -13,13 +13,13 @@
   light.position.set( 0, 0, 2);
   scene.add( light );
 
-  renderer.setSize( window.innerWidth*0.25, window.innerHeight/2 );
+  renderer.setSize( window.innerWidth*0.2, window.innerHeight*0.4 );
 
   document.getElementById("viz0").appendChild( renderer.domElement );
 
   renderer.setClearColor( 0xffffff, 1);
 
-  camera.position.z = 1.1;
+  camera.position.z = 0.9;
 
   var render = function () {
     requestAnimationFrame( render );
