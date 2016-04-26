@@ -15,19 +15,18 @@
       <h1 align="center" style="font-size:40;">How Does Your Car Affect the Environment?</h1>
       <p>
         As global warming becomes a bigger and more prevalent issue, collectively
-        humanity must look closely at the way that we are producing greenhouse gases. 
+        humanity must look closely at the way that we are producing greenhouse gases.
       </p><p>
-        We developed a model based on our main dataset that allows us to 
-        estimate the 
-        CO2 produced by a car with certain characteristics. You can set these values 
-        yourself, and we provided a couple examples for you to give you an idea of what 
-        certain cars would output. 
+        We developed a model based on an EPA dataset that allows us to
+        estimate the
+        CO2 produced by a car with certain characteristics, with more technical ones defined at the bottom. You can set these values
+        yourself, and we provided a few examples for you to give you an idea of what
+        certain cars would output.
       </p><p>
-        The rotating visual you see is the volume 
-        (calculated using ideal gas laws under standard conditions) of CO2 being 
-        produced per mile by a car of the specified values, alongside other volumes to 
-        put that number in context for you. Right below that, we specify the number of 
-        (which we defined to be 35 miles). 
+        The rotating visual you see is the volume
+        (calculated using ideal gas laws under standard conditions) of CO2 being
+        produced per mile by a car of the specified values, alongside other volumes to
+        put that number in context for you. You can click and drag the spheres to get a better look. Right below that, we specify the number of trees that would consume carbon dioxide at the average rate your car would produce it (assuming 35 miles driven per day).
       </p>
       <h3>Select a vehicle</h3>
       <script type="text/javascript" src="../datasets/samplecars.json"></script>
@@ -40,7 +39,7 @@
     <div id="controlbox">
 
 
-    <h3>Or Build Your Own Vehicle</h3>
+    <h3>Or Build Your Own</h3>
 
         <!--combined08, year, displ, cylinders, drive, vclass, transmission, fuelType,  -->
       <table>
@@ -206,7 +205,7 @@
       </table>
       <br />
 
-      
+
     </div>
 
     <div id="spheres">
@@ -235,15 +234,18 @@
       <table id='equi'>
         <tr>
           <td>
+            <div>
+              Your Car
+            </div>
             <img id='car' src='../assets/car.svg' alt='Car'>
           </td>
           <td id='pad'>
-            <p>Equilibrium</p>
+            <div>Equilibrium</div>
             <img id='eq' src='../assets/equilibrium.png' alt='equilibrium sign'>
           <td>
-            <p>
+            <div>
               The number of grown trees required to offset the chosen car's emissions is: <span id="treesnum"></span>
-            </p>
+            </div>
             <table id='trees'>
             </table>
             <script>setTrees()</script>
