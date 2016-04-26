@@ -12,14 +12,30 @@
   </head>
   <body>
     <div id="header">
-      <h1 align="center" style="font-size:40;">How Does Your Car Affect the Environment?</h2>
-        <h3>Select a vehicle</h3>
+      <h1 align="center" style="font-size:40;">How Does Your Car Affect the Environment?</h1>
+      <p>
+        As global warming becomes a bigger and more prevalent issue, collectively
+        humanity must look closely at the way that we are producing greenhouse gases. 
+      </p><p>
+        We developed a model based on our main dataset that allows us to 
+        estimate the 
+        CO2 produced by a car with certain characteristics. You can set these values 
+        yourself, and we provided a couple examples for you to give you an idea of what 
+        certain cars would output. 
+      </p><p>
+        The rotating visual you see is the volume 
+        (calculated using ideal gas laws under standard conditions) of CO2 being 
+        produced per mile by a car of the specified values, alongside other volumes to 
+        put that number in context for you. Right below that, we specify the number of 
+        (which we defined to be 35 miles). 
+      </p>
+      <h3>Select a vehicle</h3>
       <script type="text/javascript" src="../datasets/samplecars.json"></script>
-    <input id="escalade" type="button" value="2016 Cadillac Escalade" onclick="setSample(0);updateSphere();" />
-    <input id="lamborghini" type="button" value="2016 Lamborghini Aventador" onclick="setSample(1);updateSphere();" />
-    <input id="camry" type="button" value="2011 Toyota Camry" onclick="setSample(2);updateSphere();" />
-    <input id="explorer" type="button" value="1997 Ford Explorer" onclick="setSample(3);updateSphere();" />
-    <input id="volkswagen" type="button" value="2005 Volkswagen Golf" onclick="setSample(4);updateSphere();" />
+      <input id="escalade" type="button" value="2016 Cadillac Escalade" onclick="setSample(0);updateSphere();" />
+      <input id="lamborghini" type="button" value="2016 Lamborghini Aventador" onclick="setSample(1);updateSphere();" />
+      <input id="camry" type="button" value="2011 Toyota Camry" onclick="setSample(2);updateSphere();" />
+      <input id="explorer" type="button" value="1997 Ford Explorer" onclick="setSample(3);updateSphere();" />
+      <input id="volkswagen" type="button" value="2005 Volkswagen Golf" onclick="setSample(4);updateSphere();" />
     </div>
     <div id="controlbox">
 
