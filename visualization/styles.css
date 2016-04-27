@@ -86,9 +86,9 @@ p {
   /*float: left;*/
   width: 20%;
 }
-table, tr, td {
+/*table, tr, td {
   border-collapse: collapse;
-}
+}*/
 #controlbox table td:first-child {
   border-left: none;
 }
@@ -97,6 +97,15 @@ table, tr, td {
   margin-left: auto;
   margin-right: auto;
   /*margin-top: 80px;*/
+}
+
+#treeLegend {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /*padding-left: 485px;*/
+
 }
 
 #viz0 {
@@ -120,7 +129,8 @@ table, tr, td {
 }
 
 #treeTD {
-  width: 70px;
+  width: 100px;
+  padding: 10px;
 }
 
 #car {
@@ -136,10 +146,16 @@ table, tr, td {
 
 }
 
+#legend {
+  margin: 20px;
+}
+
 
 #threeD {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-left:170px;
 }
 /*td{
   text-align: center;

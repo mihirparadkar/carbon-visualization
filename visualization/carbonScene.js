@@ -5,7 +5,49 @@ function updateSphere () {
   r = m3toRadius(grams2m3(predictCO2(cubic_model)));
   sphere.scale.set(r,r,r);
   sphere2.scale.set(r,r,r);
-  d3.select("#co2vol").html(1000*grams2m3(predictCO2(cubic_model)).toPrecision(3));
+  updateLegend();
+
+  // d3.select("#co2vol").html(1000*grams2m3(predictCO2(cubic_model)).toPrecision(3));
+}
+
+
+function updateLegend(){
+  d3.select("#legend").select("svg").remove();
+  var legend = d3.select("#legend")
+        .append("svg").attr("width", 300)
+        .attr("height", 50);
+        legend.append("circle")
+        .attr("r", 5).attr("cx", 5)
+        .attr("cy", 5).style("fill", "#cbccf9")
+        .style("opacity", "1");
+        legend.append("text")
+        .attr("transform", "translate(" + 15 + "," + 9 + ")")
+        .attr("text-anchor", "start")
+        .style("color", "#C0C0C0")
+        .style("font-size", "8pt")
+        .text("Air breathed in 1 minute of running: 50 L");
+
+        legend.append("circle")
+        .attr("r", 5).attr("cx", 5)
+        .attr("cy", 25).style("fill", "#d4d4d4")
+        .style("opacity", "1");
+        legend.append("text")
+        .attr("transform", "translate(" + 15 + "," + 25 + ")")
+        .attr("text-anchor", "start")
+        .style("color", "#C0C0C0")
+        .style("font-size", "8pt")
+        .text('Volume of CO2 emitted from your vehicle: ' + (1000*grams2m3(predictCO2(cubic_model)).toPrecision(3)) + ' L');
+
+        legend.append("circle")
+        .attr("r", 5).attr("cx", 5)
+        .attr("cy", 45).style("fill", "#cdaa8e")
+        .style("opacity", "1");
+        legend.append("text")
+        .attr("transform", "translate(" + 15 + "," + 45 + ")")
+        .attr("text-anchor", "start")
+        .style("color", "#C0C0C0")
+        .style("font-size", "8pt")
+        .text("Volume of smoke inhaled from a carton of cigarettes: 104 L");
 }
 
 (function (){
@@ -61,8 +103,8 @@ function updateSphere () {
   var rinit = m3toRadius(grams2m3(predictCO2(cubic_model)));
   sphere.scale.set(rinit, rinit, rinit);
   sphere2.scale.set(rinit,rinit,rinit);
-  d3.select("#co2vol").html(1000*grams2m3(predictCO2(cubic_model)).toPrecision(3));
-
+  // d3.select("#co2vol").html(1000*grams2m3(predictCO2(cubic_model)).toPrecision(3));
+  updateLegend();
   //Event listeners to add interactivity
   var down = false;
       var sx = 0,
