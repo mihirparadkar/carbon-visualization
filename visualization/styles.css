@@ -12,13 +12,28 @@ h3 {
   color: black;
 }
 
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
 .but {
     text-align: center;
     display: inline-block;
     background-color: #555555; 
     color: white;
-    padding: 17px 30px;
+    padding: 14px 25px;
     font-size: 16px;
+}
+
+.drop {
+  padding: 14px 25px;
+  font-size: 16px;
+  text-align: center;
+  display: inline-block;
+  background-color: #555555; 
+  color: white;
 }
 
 
@@ -61,7 +76,14 @@ p {
   font-family: "Helvetica";
   color: gray;
   text-align: left;
+  width: 80%;
 }
+
+/*#intro {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}*/
 
 #controlbox {
   font-family: "Helvetica";
@@ -86,9 +108,7 @@ p {
   /*float: left;*/
   width: 20%;
 }
-/*table, tr, td {
-  border-collapse: collapse;
-}*/
+
 #controlbox table td:first-child {
   border-left: none;
 }
@@ -96,7 +116,6 @@ p {
 #spheres {
   margin-left: auto;
   margin-right: auto;
-  /*margin-top: 80px;*/
 }
 
 #treeLegend {
@@ -104,8 +123,6 @@ p {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  /*padding-left: 485px;*/
-
 }
 
 #viz0 {
@@ -141,7 +158,6 @@ p {
 }
 
 #equi {
-/*  border: 1px solid black;*/
   margin: 20px auto;
 
 }
@@ -155,12 +171,7 @@ p {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-left:170px;
 }
-/*td{
-  text-align: center;
-  border: 1px solid black;
-}*/
 
 #trees {
   width:650px;
