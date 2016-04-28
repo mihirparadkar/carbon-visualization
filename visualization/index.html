@@ -3,10 +3,8 @@
     <title>Car Gases</title>
     <script src="../lib/three.min.js" charset="utf8" ></script>
     <script src="../lib/d3.min.js" charset="utf8" ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js" charset="utf8"></script>
     <script src="../lib/calcutils.js" charset="utf8" ></script>
     <script src="../lib/controlbox.js" charset="utf8"></script>
-    <script src="../lib/sceneutils.js" charset="utf8"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
@@ -20,13 +18,13 @@
         </p><br><p>
           We developed a model based on an EPA dataset that allows us to
           estimate the
-          CO2 produced by a car with certain characteristics, with more technical ones defined at the bottom. You can set these values
+          CO2 produced by a car with certain characteristics, with more technical terms defined at the bottom. You can set these values
           yourself, and we provided a few examples for you to give you an idea of what
           certain cars would output.
         </p><br><p>
           The rotating visual you see is the volume
           (calculated using ideal gas laws under standard conditions) of CO2 being
-          produced per mile by a car of the specified values, alongside other volumes to
+          produced per mile by a car of the specified values compared to that of a human head, alongside other volumes to
           put that number in context for you. You can click and drag the spheres to get a better look. Right below that, we specify the number of trees that would consume carbon dioxide at the average rate your car would produce it (assuming 35 miles driven per day).
         </p>
       </div>
@@ -37,6 +35,172 @@
       <input class = "but" id="camry" type="button" value="2011 Toyota Camry" onclick="setSample(2);updateSphere();" />
       <input class = "but" id="explorer" type="button" value="1997 Ford Explorer" onclick="setSample(3);updateSphere();" />
       <input class = "but" id="volkswagen" type="button" value="2005 Volkswagen Golf" onclick="setSample(4);updateSphere();" />
+      <div id="controlbox">
+
+    <h3>Or Build Your Own Vehicle</h3>
+        <!--combined08, year, displ, cylinders, drive, vclass, transmission, fuelType,  -->
+      <table>
+        <tr>
+          <td>
+            Combined Miles per Gallon: <span id="boxmpg">20</span>
+            <br />
+            8
+            <input id="combined" type="range" min="8" max="48" value="20.4" oninput="setMPG();updateSphere();setTrees()"/>
+            48
+            <br />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Model Year: <span id="boxyear">2004</span>
+            <br />
+            1984
+            <input id="year" type="range" min="1984" max="2017" value="2004" step="1" oninput="setYear();updateSphere();setTrees()"/>
+            2017
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            Engine Displacement (L): <span id="boxdispl">2.4</span>
+            <br />
+            0.6
+            <input id="displ" type="range" min="0.6" max="8.4" value="2.4" step="0.1" oninput="setDisplacement();updateSphere();setTrees()"/>
+            8.4
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Number of Cylinders: <span id="boxcyls">4</span> <br>
+            <select class = "drop" id="cylinders" onchange="setCylinders();updateSphere();setTrees()">
+              <option value="2">
+                2
+              </option>
+              <option value="3">
+                3
+              </option>
+              <option value="4" selected="selected">
+                4
+              </option>
+              <option value="5">
+                5
+              </option>
+              <option value="6">
+                6
+              </option>
+              <option value="8">
+                8
+              </option>
+              <option value="10">
+                10
+              </option>
+              <option value="12">
+                12
+              </option>
+              <option value="16">
+                16
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Drive Type: <span id="boxdrive">Front-Wheel Drive</span>
+            <br />
+            <select class = "drop" id="drive" onchange="setDrive();updateSphere();setTrees()">
+              <option value="2-Wheel Drive">
+                2-Wheel Drive
+              </option>
+              <option value="4-Wheel Drive">
+                4-Wheel Drive
+              </option>
+              <option value="Part-time 4-Wheel Drive">
+                Part-time 4-Wheel Drive
+              </option>
+              <option value="Front-Wheel Drive" selected="selected">
+                Front-Wheel Drive
+              </option>
+              <option value="Rear-Wheel Drive">
+                Rear-Wheel Drive
+              </option>
+            </select>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            Vehicle Class: <span id="boxvclass">Compact Car</span>
+            <br />
+            <select class = "drop" id="vclass" onchange="setVClass();updateSphere();setTrees()">
+              <option value="Two Seater">Two Seater</option>
+              <option value="SubCompact Car">SubCompact Car</option>
+              <option value="Van">Van</option>
+              <option value="Compact Car" selected="selected">Compact Car</option>
+              <option value="Midsize Car">Midsize Car</option>
+              <option value="Large Car">Large Car</option>
+              <option value="Small Station Wagon">Small Station Wagon</option>
+              <option value="Midsize-Large Station Wagon">Midsize-Large Station Wagon</option>
+              <option value="Small Pickup Truck">Small Pickup Truck</option>
+              <option value="Standard Pickup Truck">Standard Pickup Truck</option>
+              <option value="Special Purpose Vehicle">Special Purpose Vehicle</option>
+              <option value="MiniCompact Car">MiniCompact Car</option>
+              <option value="Midsize Station Wagon">Midsize Station Wagon</option>
+              <option value="Cargo Van">Cargo Van</option>
+              <option value="Passenger Van">Passenger Van</option>
+              <option value="Minivan">Minivan</option>
+              <option value="Sport Utility Vehicle">Sport Utility Vehicle</option>
+              <option value="Small Sport Utility Vehicle">Small Sport Utility Vehicle</option>
+              <option value="Standard Sport Utility Vehicle">Standard Sport Utility Vehicle</option>
+            </select>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            Transmission Type: <span id="boxtransmission">Automatic</span>
+            <br />
+            <select class = "drop" id="transmissiontype" onchange="setTransmission();updateSphere();setTrees()">
+              <option value="Automatic" selected="selected">
+                Automatic
+              </option>
+              <option value="Manual">
+                Manual
+              </option>
+            </select>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            Fuel Type: <span id="boxfueltype">Regular Gasoline</span>
+            <br />
+            <select class = "drop" id="fueltype" onchange="setFuel();updateSphere();setTrees()">
+              <option value="Diesel">
+                Diesel
+              </option>
+              <option value="Regular Gasoline" selected="selected">
+                Regular Gasoline
+              </option>
+              <option value="Midgrade Gasoline">
+                Midgrade Gasoline
+              </option>
+              <option value="Premium Gasoline">
+                Premium Gasoline
+              </option>
+            </select><br><br>
+          </td>
+        </tr>
+      </table>
+      <br />
+
+
+    </div>
       <div id="legend"><br><br></div>
       <script>
         var legend = d3.select("#legend")
@@ -147,157 +311,6 @@
     </div>
 
 
-    <div id="controlbox">
-    <h2>Or Build Your Own</h2>
-
-        <!--combined08, year, displ, cylinders, drive, vclass, transmission, fuelType,  -->
-      <table>
-        <tr>
-          <td>
-            Combined Miles per Gallon: <span id="boxmpg">20</span>
-            <br />
-            8
-            <input id="combined" type="range" min="8" max="48" value="20.4" oninput="setMPG();updateSphere();setTrees()"/>
-            48
-            <br />
-          </td>
-          <td>
-            Model Year: <span id="boxyear">2004</span>
-            <br />
-            '84
-            <input id="year" type="range" min="1984" max="2017" value="2004" step="1" oninput="setYear();updateSphere();setTrees()"/>
-            '17
-          </td>
-          <td>
-            Engine Displacement (L): <span id="boxdispl">2.4</span>
-            <br />
-            0.6
-            <input id="displ" type="range" min="0.6" max="8.4" value="2.4" step="0.1" oninput="setDisplacement();updateSphere();setTrees()"/>
-            8.4
-          </td>
-          <td>
-            Number of Cylinders: <span id="boxcyls">4</span> <br>
-            <select class = "drop" id="cylinders" onchange="setCylinders();updateSphere();setTrees()">
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4" selected="selected">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="10">
-                10
-              </option>
-              <option value="12">
-                12
-              </option>
-              <option value="16">
-                16
-              </option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Drive Type: <span id="boxdrive">Front-Wheel Drive</span>
-            <br />
-            <select class = "drop" id="drive" onchange="setDrive();updateSphere();setTrees()">
-              <option value="2-Wheel Drive">
-                2-Wheel Drive
-              </option>
-              <option value="4-Wheel Drive">
-                4-Wheel Drive
-              </option>
-              <option value="Part-time 4-Wheel Drive">
-                Part-time 4-Wheel Drive
-              </option>
-              <option value="Front-Wheel Drive" selected="selected">
-                Front-Wheel Drive
-              </option>
-              <option value="Rear-Wheel Drive">
-                Rear-Wheel Drive
-              </option>
-            </select>
-          </td>
-          <td>
-            Vehicle Class: <span id="boxvclass">Compact Car</span>
-            <br />
-            <select class = "drop" id="vclass" onchange="setVClass();updateSphere();setTrees()">
-              <option value="Two Seater">Two Seater</option>
-              <option value="SubCompact Car">SubCompact Car</option>
-              <option value="Van">Van</option>
-              <option value="Compact Car" selected="selected">Compact Car</option>
-              <option value="Midsize Car">Midsize Car</option>
-              <option value="Large Car">Large Car</option>
-              <option value="Small Station Wagon">Small Station Wagon</option>
-              <option value="Midsize-Large Station Wagon">Midsize-Large Station Wagon</option>
-              <option value="Small Pickup Truck">Small Pickup Truck</option>
-              <option value="Standard Pickup Truck">Standard Pickup Truck</option>
-              <option value="Special Purpose Vehicle">Special Purpose Vehicle</option>
-              <option value="MiniCompact Car">MiniCompact Car</option>
-              <option value="Midsize Station Wagon">Midsize Station Wagon</option>
-              <option value="Cargo Van">Cargo Van</option>
-              <option value="Passenger Van">Passenger Van</option>
-              <option value="Minivan">Minivan</option>
-              <option value="Sport Utility Vehicle">Sport Utility Vehicle</option>
-              <option value="Small Sport Utility Vehicle">Small Sport Utility Vehicle</option>
-              <option value="Standard Sport Utility Vehicle">Standard Sport Utility Vehicle</option>
-            </select>
-          </td>
-<!--         </tr>
-
-
-        <tr> -->
-          <td>
-            Transmission Type: <span id="boxtransmission">Automatic</span>
-            <br />
-            <select class = "drop" id="transmissiontype" onchange="setTransmission();updateSphere();setTrees()">
-              <option value="Automatic" selected="selected">
-                Automatic
-              </option>
-              <option value="Manual">
-                Manual
-              </option>
-            </select>
-          </td>
-   <!--      </tr>
-
-
-        <tr> -->
-          <td>
-            Fuel Type: <span id="boxfueltype">Regular Gasoline</span>
-            <br />
-            <select class = "drop" id="fueltype" onchange="setFuel();updateSphere();setTrees()">
-              <option value="Diesel">
-                Diesel
-              </option>
-              <option value="Regular Gasoline" selected="selected">
-                Regular Gasoline
-              </option>
-              <option value="Midgrade Gasoline">
-                Midgrade Gasoline
-              </option>
-              <option value="Premium Gasoline">
-                Premium Gasoline
-              </option>
-            </select><br><br>
-          </td>
-        </tr>
-      </table>
-      <br />
-    </div>
-
     <script src="carbonScene.js" type="text/javascript" charset="utf8"></script>
 
 
@@ -306,7 +319,7 @@
       <h2><br>Definition of Technical Terms:</h2>
       <p>
       <b>Combined Fuel Economy: </b>EPA definition gives (0.45)(Highway MPG) + (0.55)(City MPG) = Combined MPG. This is a measure of how much fuel a vehicle uses on average to drive for one mile. Higher values generally result in a lower emission because burned fuel produces greenhouse gases.
-      </p> 
+      </p>
       <br/>
       <p>
       <b>Displacement: </b>The area of an engine's pistons times the length of a stroke. This affects how much air and fuel can be burned in one engine cycle, so a higher value generally results in higher emissions.
